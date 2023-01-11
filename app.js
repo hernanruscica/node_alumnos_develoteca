@@ -10,6 +10,7 @@ const indexRouter = require('./routes/index');
 const PORT = 3000;
 
 app.use('/', indexRouter);
+
 app.use(express.static(path.join(__dirname, 'views')));
 
 app.listen(PORT, () => {

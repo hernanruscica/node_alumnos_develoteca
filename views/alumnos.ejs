@@ -8,8 +8,12 @@
 </head>
 <body>
     <h1>listado de alumnos</h1>
-    <p>Nombre: <%= nombre %></p>
-    <p>D.N.I.: <%= dni %></p>
-    <p>Usuario: <%= usuario %></p>
+           
+    <ul>
+        <% resultados.forEach((resultado) => { %>
+          <li> <%= resultado.nombres %> </li>
+        <% }); %>
+      </ul>
+  
 </body>
 </html>

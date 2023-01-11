@@ -4,14 +4,27 @@ const alumno = require("../models/alumnoModel");
 
 module.exports = {
     mostrarAlumnos : (req, res) => {          
-        alumno.obtenerTodosAlumnos(conexion, (err, data) => {
-            if (!err) {
-                console.log(data);
+        let resultados = null;
+        alumno.obtenerTodosAlumnos(conexion, (err, results) => {
+            if (!err) {                
+                res.render('alumnos', {resultados : results});  
             }else{
                 console.log("error en la consulta");
             }
         })
         conexion.end();
-        res.render('alumnos', {nombre: 'pepe', dni: 33125458, usuario: 'pepe_92'});
+          
+    },
+    mostrarJuanes : (req, res) => {
+        alumno.buscarJuanes(conexion, (err, data) => {
+            if (!err) {
+                console.log(data);
+            }else{
+                console.log("error en la consulta");
+            }
+        })  
+        conexion.end();     
+        res.send('consulta correcta');
     }
+    
 }

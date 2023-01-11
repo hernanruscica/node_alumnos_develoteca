@@ -1,7 +1,7 @@
 {
   "name": "develoteca",
   "version": "1.0.0",
-  "description": "",
+  "description": "<p>\r     Esto es un ejercicio, como mis primera practicas en node.js y express. <br>\r     Uso la arquitectura MVC para generar un CRUD, que se conectay actualiza una BD externa con el modulo 'mysql'.<br>\r     Sigo los pasos del siguiente video del canal de youtube 'Develoteca': \r     <a href=\"https://www.youtube.com/watch?v=ZdalwuQ__Xk\" target = \"_blank\">CRUD JavaScript con express - YouTube</a>git\r </p>",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -14,5 +14,13 @@
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "mysql": "^2.18.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hernanruscica/node_alumnos_develoteca.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hernanruscica/node_alumnos_develoteca/issues"
+  },
+  "homepage": "https://github.com/hernanruscica/node_alumnos_develoteca#readme"
 }
