@@ -1,11 +1,12 @@
 const mysql = require("mysql");
 
 // Crea la conexión a la base de datos
+//190.228.29.62 ip publica
 const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'escuela_db'
+  host: 'https://190.228.29.62',
+  user: 'grupo97admin',
+  password: 'b4rt0n2018',
+  database: 'develoteca_escuela_db'
 });
 connection.connect(
     (err) => {
