@@ -1,0 +1,7 @@
+PUT http://localhost:3000/alumnos/actualizar/20
+Content-Type: application/json
+
+{
+    "nombres": "Nuevo Nombre",
+    "email": "nuevoemail@ejemplo.com"
+}

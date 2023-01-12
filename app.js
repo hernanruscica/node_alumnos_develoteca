@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const bodyParser = require('body-parser');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -11,6 +12,8 @@ const alumnoController = require('./routes/alumno');
 
 const PORT = 3000;
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 app.use('/', indexRouter);
 app.use('/alumnos', alumnoController);
 

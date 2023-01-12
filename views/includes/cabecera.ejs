@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>listado de alumnos</title>
+    <title><%= title %></title>
     <style>
         *,
         *:after,
@@ -14,16 +14,43 @@
             box-sizing: border-box;
         }
 
+
         .form {
             display: flex;
             flex-direction: column;
             align-items: center;
-
+            margin-top: 2em;
         }
         .campo {
-            width: 50vw;
+            width: 90vw;
             max-width: 600px;
             margin-bottom: 1em;
+            font-size: 1.2rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        
+        .campo input{
+            width: auto;
+        }
+        .campo input[type=text],
+        .campo input[type=number],
+        .campo input[type=email],
+        .campo input[type=password]{
+            font-size: 1rem;
+            padding: 0.5em;
+        }
+        .btn-enviar {
+            font-size: 1.2rem;
+            padding: 1rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            background-color: green;
+            color: azure;
+            border: none;
+            border-radius: 10px;
+
         }
     </style>    
 </head>

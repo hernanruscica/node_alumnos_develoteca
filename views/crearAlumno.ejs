@@ -1,34 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>listado de alumnos</title>
-    <style>
-        *,
-        *:after,
-        *.before{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
-
-        .form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-
-        }
-        .campo {
-            width: 50vw;
-            max-width: 600px;
-            margin-bottom: 1em;
-        }
-    </style>    
-</head>
+<%- include('includes/cabecera', {title: "Ingresar nuevo alumno"}) %>
 <body>
-    <form class="form" action="/insert-alumno" method="post">
+    <h1>Ingresar nuevo alumno</h1>
+    <form class="form" action="/alumnos/insertar-alumno" method="post">
         <div class="campo">
             <label for="nombres">Nombres:</label>
             <input type="text" id="nombres" name="nombres" required>
@@ -53,7 +26,6 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
         </div>
-        <input type="submit" value="Ingresar alumno">
-    </form>
-    
+        <input class="btn-enviar" type="submit" value="Ingresar alumno">
+    </form>    
 </html>

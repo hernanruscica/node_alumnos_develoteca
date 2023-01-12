@@ -4,7 +4,11 @@ var router = express.Router();
 
 //Rutas de alumno
 router.get('/', alumnoController.mostrarAlumnos);
-router.get('/juanes', alumnoController.mostrarJuanes);
+router.get('/ver/:id', alumnoController.verAlumno);
+//router.get('/juanes', alumnoController.mostrarJuanes);
 router.get('/crear', alumnoController.mostrarFormuCrear);
+router.post('/insertar-alumno', alumnoController.insertarAlumno);
+router.delete('/eliminar/:id', alumnoController.eliminarAlumno);
+router.put('/actualizar/:id', alumnoController.actualizarAlumno);
 
 module.exports = router;

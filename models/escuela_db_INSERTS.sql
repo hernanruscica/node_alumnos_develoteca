@@ -1,6 +1,12 @@
 
 USE develoteca_escuela_db;
 
+/*Insertar un alumno en particular con los datos ya validados*/
+INSERT INTO alumnos (nombres, apellidos, username, dni, mail, password)
+VALUES ('cesar', 'ruscica', 'cruscica', 28470361, 'cruscica@trabajo.gob.ar', '1234567');
+
+
+/*Insertar varios usuarios de prueba*/
 INSERT INTO alumnos (nombres, apellidos, username, dni, mail, password)
 VALUES 
     ('Juan', 'Perez', 'jperez', 12234568, 'jperez@mail.com', 'pass1'),
