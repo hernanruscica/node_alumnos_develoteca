@@ -7,9 +7,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 const indexRouter = require('./routes/index');
+const alumnoController = require('./routes/alumno');
+
 const PORT = 3000;
 
 app.use('/', indexRouter);
+app.use('/alumnos', alumnoController);
 
 app.use(express.static(path.join(__dirname, 'views')));
 

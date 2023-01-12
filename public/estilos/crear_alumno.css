@@ -1,0 +1,17 @@
+*,
+*:after,
+*.before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+.campo {
+    width: 50vw;
+    max-width: 600px;
+    margin-bottom: 1em;
+}

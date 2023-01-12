@@ -12,8 +12,6 @@ module.exports = {
                 console.log("error en la consulta");
             }
         })
-        conexion.end();
-          
     },
     mostrarJuanes : (req, res) => {
         alumno.buscarJuanes(conexion, (err, data) => {
@@ -22,9 +20,11 @@ module.exports = {
             }else{
                 console.log("error en la consulta");
             }
-        })  
-        conexion.end();     
+        })             
         res.send('consulta correcta');
+    },
+    mostrarFormuCrear : (req, res) => {
+        res.render('crearAlumno');
     }
     
 }
