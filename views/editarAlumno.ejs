@@ -1,4 +1,4 @@
-<%- include('includes/cabecera', {title: "Ingresar nuevo alumno"}) %>
+<%- include('includes/cabecera', {title: "Editar alumno"}) %>
 <body>
     <header class="cabecera">
         <nav>
@@ -7,35 +7,35 @@
             <li class="cabecera__navbar-item"><a href="/alumnos/" class = "cabecera-navbar-btn">Ver todos</a></li>
             <li class="cabecera__navbar-item"><a href="/alumnos/buscar" class = "cabecera-navbar-btn">Buscar alumno</a></li>
           </ul>
-        </nav>
-        
+        </nav>        
       </header>
-    <h1 class="titulo">Ingresar nuevo alumno</h1>
-    <form class="form" action="/alumnos/insertar-alumno" method="post">
+    <h1 class="titulo">Editar alumno</h1>
+    <form class="form" action="/alumnos/actualizar/<%= resultado.id %>" method="post">
+        <input type="hidden" name="_method" value="put">
         <div class="campo">
             <label for="nombres">Nombres:</label>
-            <input type="text" id="nombres" name="nombres" required>
+            <input type="text" id="nombres" name="nombres" value='<%= resultado.nombres %>' required>
         </div>
         <div class="campo">
             <label for="apellidos">Apellidos:</label>
-            <input type="text" id="apellidos" name="apellidos" required>
+            <input type="text" id="apellidos" name="apellidos" value='<%= resultado.apellidos %>' required>
         </div>
         <div class="campo">
             <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" value='<%= resultado.username %>' required>
         </div>
         <div class="campo">
             <label for="dni">DNI:</label>
-            <input type="number" id="dni" name="dni" required>
+            <input type="number" id="dni" name="dni" value='<%= resultado.dni %>' required>
         </div>
         <div class="campo">
             <label for="mail">Mail:</label>
-            <input type="email" id="mail" name="mail" required>
+            <input type="email" id="mail" name="mail" value='<%= resultado.mail %>' required>
         </div>
         <div class="campo">
             <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" value='<%= resultado.password %>' required>
         </div>
-        <input class="btn-enviar" type="submit" value="Ingresar alumno">
-    </form>    
+        <input class="btn-enviar" type="submit" value="Guardar Cambios">
+    </form>        
 </html>

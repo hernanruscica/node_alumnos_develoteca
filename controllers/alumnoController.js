@@ -58,10 +58,27 @@ module.exports = {
         console.log(`eliminando a id: ${id}`);
         /**/
     },
+    editarAlumno : (req, res) => {
+        const id = req.params.id;
+        alumno.verAlumno(id, conexion, (err, results) => {
+            if (!err) {
+                console.log(results);
+                //res.send(data);
+                res.render('editarAlumno', {resultado: results[0]});
+            }else{
+                console.log("error en la consulta");
+            }    
+        });        
+    },
     actualizarAlumno : (req, res) => {
         const id = req.params.id;
         const formData = req.body;
         console.log(`Actualizando el registro ${id} con los siguientes datos: ${formData.nombres} y ${formData.email}`);
+        alumno.actualizarAlumno(id, formData, conexion, (err, result) => {
+            if(err) throw err;     
+        });
+        res.redirect('/alumnos');
+        console.log(`actualizado el alumno con id: ${id}`);        
     }
     
     

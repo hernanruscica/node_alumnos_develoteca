@@ -1,22 +1,29 @@
 <%- include('includes/cabecera', {title: "Listado de alumnos"}) %>
 <body>
-    <section>
-      <a href="/alumnos/crear" type="button">Ingresar alumno</a>
-    </section>
-    <h1>Listado de alumnos</h1>
-     <table>
-      <thead>
+    <header class="cabecera ">
+      <nav>
+        <ul class="cabecera__navbar container">
+          <li class="cabecera__navbar-item"><a href="/alumnos/crear" class = "cabecera-navbar-btn">Ingresar alumno</a></li>
+          <li class="cabecera__navbar-item"><a href="/alumnos/" class = "cabecera-navbar-btn">Ver todos</a></li>
+          <li class="cabecera__navbar-item"><a href="/alumnos/buscar" class = "cabecera-navbar-btn">Buscar alumno</a></li>
+        </ul>
+      </nav>
+      
+    </header>
+    <h1 class="titulo">Listado de alumnos</h1>
+     <table class="listado__alumnos">
+      <thead class="tabla-cabecera">
         <tr>
           <!--
           <td>Nombres</td>
           <td>Apellidos</td>
           -->
-          <td>Usuario</td>
-          <td>DNI</td>
+          <td class="tabla-fila">Usuario</td>
+          <td class="tabla-fila">DNI</td>
           <!--
           <td>Correo</td>
           -->
-          <td>Acciones</td>
+          <td class="tabla-fila">Acciones</td>
         </tr>
       </thead>
       <tbody>
@@ -26,15 +33,15 @@
           <td><%= resultado.nombres %></td>
           <td><%= resultado.apellidos %></td>
           -->
-          <td><%= resultado.username %></td>          
-          <td><%= resultado.dni %></td>
+          <td  class="tabla-fila"><%= resultado.username %></td>          
+          <td  class="tabla-fila"><%= resultado.dni %></td>
           <!--
           <td><%= resultado.mail %></td>
           -->
-          <td>
-            <a href ="/alumnos/ver/<%= resultado.id %>">Ver detalles</a>
-            <button data-id = <%= resultado.id %> id="btn-editar">Editar</button>
-            <button data-id = <%= resultado.id %> id="btn-eliminar">Eliminar</button>
+          <td class="tabla-acciones tabla-fila">            
+            <a href ="/alumnos/ver/<%= resultado.id %>" style="color: rgb(204, 0, 255)" ><i class="fa-solid fa-eye"></i></a>     
+            <a href="/alumnos/editar/<%= resultado.id %>" style="color: green"><i class="fa-solid fa-pen-to-square"></i></a>
+            <i class="fa-solid fa-trash btn-acciones" style="color: red"  data-id = <%= resultado.id %> id="btn-eliminar"></i>
           </td>
         </tr>
         <% }); %>
@@ -54,7 +61,7 @@
             .catch(error => {
               // manejar error
             });
-        }
+        }        
       })
     </script>
   

@@ -1,6 +1,16 @@
 <%- include('includes/cabecera', {title: "Ver Alumno"}) %>
 <body>
-    <h1>Ver Alumno </h1>
+    <header class="cabecera">
+        <nav>
+          <ul class="cabecera__navbar">
+            <li class="cabecera__navbar-item"><a href="/alumnos/crear" class = "cabecera-navbar-btn">Ingresar alumno</a></li>
+            <li class="cabecera__navbar-item"><a href="/alumnos/" class = "cabecera-navbar-btn">Ver todos</a></li>
+            <li class="cabecera__navbar-item"><a href="/alumnos/buscar" class = "cabecera-navbar-btn">Buscar alumno</a></li>
+          </ul>
+        </nav>
+        
+      </header>
+    <h1 class = "titulo">Ver Alumno </h1>
     <form class="form" action="/alumnos/insertar-alumno" method="post">
         <div class="campo">
             <label for="nombres">Nombres:</label>
@@ -26,9 +36,34 @@
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" value='<%= resultado.password %>'  disabled>
         </div>
+        <div class="tabla-acciones" style="font-size: 1.6em; width: 200px;" >
+             <!--
+            <i class="fa-solid fa-pen-to-square btn-acciones" style="color: green" data-id = <%= resultado.id %> id="btn-editar"></i>           
+            <i class="fa-solid fa-trash btn-acciones" style="color: red"  data-id = <%= resultado.id %> id="btn-eliminar"></i>
+            -->
+            <a href="/alumnos/editar/<%= resultado.id %>" style="color: green"><i class="fa-solid fa-pen-to-square"></i></a>
+        </div>
+        
         <!--
         <input class="btn-enviar" type="submit" value="Ingresar alumno">
         -->
-    </form>    
+    </form>   
+    <script>
+        const $d = document;
+        $d.addEventListener('click', (e) => {
+          if (e.target.id == "btn-eliminar"){
+            //console.log(`Eliminando el elemento ${e.target.dataset.id}`);
+            const id = event.target.dataset.id;
+            fetch(`/alumnos/eliminar/${id}`, { method: 'DELETE' })
+              .then(response => {
+                // manejar respuesta exitosa              
+                location.reload();
+              })
+              .catch(error => {
+                // manejar error
+              });
+          }
+        })
+      </script> 
 </body>
 </html>

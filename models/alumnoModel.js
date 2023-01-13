@@ -16,5 +16,8 @@ module.exports = {
     },
     eliminarAlumno: (id, con, func) => {
         con.query(`DELETE FROM alumnos WHERE id = ${id};`);
+    },
+    actualizarAlumno: (id, data, con, func) => {
+        con.query(`UPDATE alumnos SET nombres = '${data.nombres}', apellidos = '${data.apellidos}', username = '${data.username}', dni = ${data.dni}, mail = '${data.mail}', password = '${data.password}' WHERE id = '${id}';`, func);
     }
 }

@@ -1,0 +1,1 @@
+UPDATE alumnos SET nombres = 'juan', apellidos = 'Rodriguez', username = 'jrodriguez', dni = 21456987, mail = 'juanchoro@mail.com', password = 'c4s4' WHERE id = '46';

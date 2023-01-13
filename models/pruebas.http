@@ -1,7 +1,11 @@
-PUT http://localhost:3000/alumnos/actualizar/20
+PUT http://localhost:3000/alumnos/actualizar/41
 Content-Type: application/json
 
 {
-    "nombres": "Nuevo Nombre",
-    "email": "nuevoemail@ejemplo.com"
+    "nombres": "Juan Carlos",
+    "apellidos": "Velazquez",
+    "username": "jcvelazquez",
+    "dni": 30258741,
+    "email": "nuevoemail@ejemplo.com",
+    "password": "123456789"
 }
