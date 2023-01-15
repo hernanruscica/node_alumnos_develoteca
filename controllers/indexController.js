@@ -1,7 +1,7 @@
 module.exports = {
  index: (req, res) => {
     //console.log("desde index controller");
-    res.send('<h1>Bienvenido a mi app!</h1><p>Podes iniciar sesion o registrarte</p>');
+    res.send('<h1>Bienvenido a mi app!</h1><p>Podes iniciar sesion o registrarte</p><br><a href="/alumnos/">INGRESAR</a>');
  },    
  logueado: (req, res) => {    
     //res.send('<h1>Bienvenido a mi app!</h1><p>Bienvenido de nuevo</p>');

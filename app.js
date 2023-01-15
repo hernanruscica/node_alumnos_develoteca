@@ -4,6 +4,7 @@ const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
+require('dotenv').config();
 
 
 app.set('views', path.join(__dirname, 'views'));
@@ -12,7 +13,7 @@ app.set('view engine', 'ejs');
 const indexRouter = require('./routes/index');
 const alumnoController = require('./routes/alumno');
 
-const PORT = 3000;
+const PORT = process.env.port || 10000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
