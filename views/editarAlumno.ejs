@@ -13,6 +13,10 @@
     <form class="form" action="/alumnos/actualizar/<%= resultado.id %>" method="post">
         <input type="hidden" name="_method" value="put">
         <div class="campo">
+            <label for="">foto de perfil:</label>
+            <img class="form__foto-perfil" src='/<%= resultado.foto %>' alt="foto cargada desde la bd">            
+        </div>
+        <div class="campo">
             <label for="nombres">Nombres:</label>
             <input type="text" id="nombres" name="nombres" value='<%= resultado.nombres %>' required>
         </div>
