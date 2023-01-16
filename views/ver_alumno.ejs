@@ -12,6 +12,7 @@
       </header>
     <h1 class = "titulo">Ver Alumno </h1>
     <form class="form" action="/alumnos/insertar-alumno" method="post">
+        <img class="form__foto-perfil" src='/<%= resultado.foto %>' alt="foto cargada desde la bd">
         <div class="campo">
             <label for="nombres">Nombres:</label>
             <input type="text" id="nombres" name="nombres" value='<%= resultado.nombres %>' disabled>

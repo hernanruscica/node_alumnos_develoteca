@@ -15,6 +15,7 @@ const alumnoController = require('./routes/alumno');
 
 const PORT = process.env.port || 10000;
 
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/', indexRouter);

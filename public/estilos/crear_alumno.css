@@ -121,3 +121,9 @@ body {
     
     
 }
+.form__foto-perfil{
+    width: 50vw;
+    height: auto;
+    max-width: 200px;
+    
+}

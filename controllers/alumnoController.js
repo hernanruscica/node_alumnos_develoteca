@@ -42,7 +42,9 @@ module.exports = {
     },
     insertarAlumno : (req, res) => {
         const formData = req.body;
-        alumno.insertarAlumno(formData, conexion, (err, result) => {
+        console.log(req.files.image[0]);
+        const imagePathName = req.files.image[0].filename;
+        alumno.insertarAlumno(formData, imagePathName, conexion, (err, result) => {
             if(err) throw err;
             console.log('Alumno agregado');
             res.redirect('/alumnos');
