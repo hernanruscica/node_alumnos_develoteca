@@ -1,5 +1,5 @@
 module.exports = {
-    obtenerTodosUsername : (con, func) => {
-        con.query("SELECT username FROM alumnos;", func);
+    buscarPorUsername : (username, con, func) => {
+        con.query(`SELECT password FROM alumnos WHERE username = '${username}' ;`, func);
     }
 }

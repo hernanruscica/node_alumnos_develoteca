@@ -2,7 +2,7 @@ const express = require('express');
 const alumnoController = require('../controllers/alumnoController');
 var router = express.Router();
 const multer = require('multer');
-//var upload = multer({dest: 'uploads/'});
+//var upload = multer({dest: 'uploads/'}); esto lo saco porque uso abajo, diskstorage
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, 'public/')
@@ -17,11 +17,7 @@ const storage = multer.diskStorage({
 router.get('/', alumnoController.mostrarAlumnos);
 router.get('/ver/:id', alumnoController.verAlumno);
 //router.get('/juanes', alumnoController.mostrarJuanes);
-/*
-app.post('/upload', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'title' }, { name: 'description' }]), (req, res) => {
-    // Código para almacenar la imagen y los campos en la base de datos
-});
-*/
+
 router.get('/crear', alumnoController.mostrarFormuCrear);
 //Asi esta antes de multer ...router.post('/insertar-alumno', alumnoController.insertarAlumno); abajo, despues de multer....
 router.post('/insertar-alumno', upload.fields([{ name: 'image', maxCount: 1 }, { name: 'nombres' }, { name: 'apellidos' }, { name: 'username' }, { name: 'dni' }, { name: 'mail' }, { name: 'password' }]), alumnoController.insertarAlumno);

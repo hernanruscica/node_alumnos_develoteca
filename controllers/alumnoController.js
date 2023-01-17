@@ -2,6 +2,11 @@
 const conexion = require("../config/connection");
 const alumno = require("../models/alumnoModel");
 
+/* bcrypt*/
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
+
 module.exports = {
     mostrarAlumnos : (req, res) => {          
         
@@ -40,11 +45,16 @@ module.exports = {
     mostrarFormuCrear : (req, res) => {
         res.render('crearAlumno');
     },
-    insertarAlumno : (req, res) => {
+    insertarAlumno : async (req, res) => {
         const formData = req.body;
-        console.log(req.files.image[0]);
+        //console.log(req.files.image[0]);
+        const passwordTexto = req.body.password;
+        //console.log(passwordTexto);
         const imagePathName = req.files.image[0].filename;
-        alumno.insertarAlumno(formData, imagePathName, conexion, (err, result) => {
+
+        let passwordHashed = await bcrypt.hash(passwordTexto, saltRounds); 
+
+        alumno.insertarAlumno(formData, imagePathName, passwordHashed, conexion, (err, result) => {
             if(err) throw err;
             console.log('Alumno agregado');
             res.redirect('/alumnos');
@@ -82,6 +92,4 @@ module.exports = {
         res.redirect('/alumnos');
         console.log(`actualizado el alumno con id: ${id}`);        
     }
-    
-    
 }

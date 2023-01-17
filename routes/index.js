@@ -7,4 +7,4 @@ router.get('/', indexController.index);
 router.post('/auth', indexController.autentificacion);
 router.get('/logueado', indexController.logueado);
 
-module.exports = router;
+module.exports = router;  

@@ -1,27 +1,32 @@
 const conexion = require("../config/connection");
 const indexModel = require("../models/indexModel");
 
+const bcrypt = require('bcrypt');
+
 module.exports = {
- index: (req, res) => {
-    //console.log("desde index controller");
-    //res.send('<h1>Bienvenido a mi app!</h1><p>Podes iniciar sesion o registrarte</p><br><a href="/alumnos/">INGRESAR</a>');
+ index: (req, res) => {    
     res.render('index');
  },    
- logueado: (req, res) => {    
-    //res.send('<h1>Bienvenido a mi app!</h1><p>Bienvenido de nuevo</p>');
+ logueado: (req, res) => {        
     res.render('logueado', {mensaje: 'Bienvenido de nuevo. Desde ejs'});
- },
- autentificacion: (req, res) => {
+ }, 
+ autentificacion:  (req, res) => {
    const userNameSearched = req.body.username;
-   const userNamePassword = req.body.password;
-   //me faltaria comparar con usernames con el que esta ingresando y luego hacer las indicaciones de chatgpt
-   indexModel.obtenerTodosUsername (conexion, (error, results) => {
-      if (!error){
-         res.send(`<p> username: ${userNameSearched} password: ${userNamePassword} <br> userNames: ${JSON.stringify(results)}`);
+   const userNamePassword = req.body.password; 
+   indexModel.buscarPorUsername  (userNameSearched, conexion, async (error, results) => {
+      //si encontró al usuario 
+      if (results.length != 0){
+         const passwordOk = await bcrypt.compare(userNamePassword, results[0].password);
+         if (passwordOk){
+            //res.send(`<p> username: ${userNameSearched} password: ${userNamePassword} ENCONTRADO Y VALIDADO ! <a href='/alumnos'>ALUMNOS</a>`);
+            
+         }else{
+            res.send(`<p> username: ${userNameSearched} password: ${userNamePassword} PASSWORD INCORRECTO ! <a href='/'>HOME</a>`);
+         }
+      //si No lo encontró
       }else{
-         console.log("error en la consulta para buscar los username");
-      }
-   })
-   
+         res.send(`<p> username: ${userNameSearched} NO ENCONTRADO ! </p><a href='/'>HOME</a>`);         
+      } 
+   })   
  }
 }
